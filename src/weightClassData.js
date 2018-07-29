@@ -126,9 +126,8 @@ exports.us_strongman = {
 	}
 }
 
-exports.get = (weight, federation, division) => {
+exports.get = function(weight, sourceClasses) {
 	const inputWeight = parseInt(weight, 10);
-	const sourceClasses = this[federation][division];
 	const availableClasses = Object.keys(sourceClasses);
 	const classes = Array.from(availableClasses.map((thisClass) => {
 		return sourceClasses[thisClass];
@@ -150,8 +149,9 @@ exports.get = (weight, federation, division) => {
 	return availableClasses[weightClass];
 }
 
-exports.toKilos = (weight, unit) => {
+exports.toKilos = function(weight, unit) {
 	const weightInput = parseInt(weight, 10);
+	let output = 0;
 
 	// no weight was provided, so bail out
 	if (!weight) return null;
@@ -160,8 +160,11 @@ exports.toKilos = (weight, unit) => {
 	if (unit === 'kg') return weight;
 
 	// convert pounds to kilos
-	if (unit === 'lbs') return (weightInput / 2.207);
+	if (unit === 'lbs') output = Math.fround(weightInput / 2.207).toFixed(1);
 
 	// convert kilos to pounds
-	if (unit === 'st') return (weightInput / 0.157473);
+	if (unit === 'st') output = Math.fround(weightInput / 0.157473).toFixed(1);
+
+	// round to nearest single decimal
+	return output;
 }
