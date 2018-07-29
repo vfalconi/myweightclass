@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Results | What's My Weight Class?</title>
+	</head>
+	<body>
+		<div class="form-wrapper">
+			<form action="/results" method="post">
+				<label for="weight">Your weight</label>
+				<input id="weight" type="number" name="weight" min="1" value="{{ weight }}" />
+				<label>
+					Kilograms
+					<input type="radio" name="unit" value="kg" {{#if isKilos}}checked{{/if}} />
+				</label>
+				<label>
+					Pounds
+					<input type="radio" name="unit" value="lbs" {{#if isPounds}}checked{{/if}} />
+				</label>
+				<label>
+					Stones
+					<input type="radio" name="unit" value="st" {{#if isStones}}checked{{/if}}/>
+				</label>
+			</form>
+		</div>
+		<section>
+			<h1>IWF/USAW</h1>
+			<dl>
+				<dt>Men</dt>
+				<dd>{{ iwf.men }}</dd>
+				<dt>Women</dt>
+				<dd>{{ iwf.women }}</dd>
+				<dt>Youth Men</dt>
+				<dd>{{ iwf.youth_men }}</dd>
+				<dt>Youth Women</dt>
+				<dd>{{ iwf.youth_women }}</dd>
+			</dl>
+		</section>
+		<section>
+			<h1>IPL/USPA</h1>
+			<dl>
+				<dt>Men</dt>
+				<dd>{{ ipl.men }}</dd>
+				<dt>Women</dt>
+				<dd>{{ ipl.women }}</dd>
+			</dl>
+		</section>
+		<section>
+			<h1>IPF/USAPL</h1>
+			<dl>
+				<dt>Men</dt>
+				<dd>{{ ipf.men }}</dd>
+				<dt>Women</dt>
+				<dd>{{ ipf.women }}</dd>
+			</dl>
+		</section>
+		<section>
+			<h1>US Strongman</h1>
+			<dl>
+				<dt>Open Strongman</dt>
+				<dd>{{ us_strongman.open_strongman }}</dd>
+				<dt>Masters Strongman</dt>
+				<dd>{{ us_strongman.masters_strongman }}</dd>
+				<dt>Teens Strongman</dt>
+				<dd>{{ us_strongman.teens_strongman }}</dd>
+				<dt>Open Strongwoman</dt>
+				<dd>{{ us_strongman.open_strongwoman }}</dd>
+				<dt>Masters Strongwoman</dt>
+				<dd>{{ us_strongman.masters_strongwoman }}</dd>
+				<dt>Teens Strongwoman</dt>
+				<dd>{{ us_strongman.teens_strongwoman }}</dd>
+			</dl>
+		</section>
+	</body>
+</html>
