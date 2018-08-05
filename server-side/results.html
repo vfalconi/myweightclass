@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Results | What's My Weight Class?</title>
+	</head>
+	<body>
+		<div class="form-wrapper">
+			<form action="/results">
+				<div class="input-row">
+					<input class="text-input" id="weight" type="number" aria-label="Your weight" placeholder="Your weight" name="weight" min="1" />
+					<div class="radio-set" role="group">
+						<label class="radio-label">
+							<input type="radio" value="kg" name="unit" id="unit_kg" {{#if isKilos}}checked{{/if}} />
+							<span class="input-indicator"></span>
+							<span class="label-text">kilos</span>
+						</label>
+						<label class="radio-label">
+							<input type="radio" value="lbs" name="unit" id="unit_lbs" {{#if isPounds}}checked{{/if}} />
+							<span class="input-indicator"></span>
+							<span class="label-text">pounds</span>
+						</label>
+						<label class="radio-label">
+							<input type="radio" value="st" name="unit" id="unit_st" {{#if isStones}}checked{{/if}} />
+							<span class="input-indicator"></span>
+							<span class="label-text">stones</span>
+						</label>
+					</div>
+					<button className="button" type="submit">Calculate</button>
+				</div>
+			</form>
+		</div>
+		<div className="results-wrapper">
+			<section class="results-section">
+				<h1 class="results-heading">IWF/USAW</h1>
+				<dl class="federation">
+					<div class="division">
+						<dt class="division-title">Men</dt>
+						<dd class="weightclass"><tt>{{ iwf.men }}</tt></dd>
+					</div>
+					<div class="division">
+						<dt class="division-title">Women</dt>
+						<dd class="weightclass"><tt>{{ iwf.women }}</tt></dd>
+					</div>
+					<div class="division">
+						<dt class="division-title">Youth Men</dt>
+						<dd class="weightclass"><tt>{{ iwf.youth_men }}</tt></dd>
+					</div>
+					<div class="division">
+						<dt class="division-title">Youth Women</dt>
+						<dd class="weightclass"><tt>{{ iwf.youth_women }}</tt></dd>
+					</div>
+				</dl>
+			</section>
+			<section class="results-section">
+				<h1 class="results-heading">IPL/USPA</h1>
+				<dl class="federation">
+					<div class="division">
+						<dt class="division-title">Men</dt>
+						<dd class="weightclass"><tt>{{ ipl.men }}</tt></dd>
+					</div>
+					<div class="division">
+						<dt class="division-title">Women</dt>
+						<dd class="weightclass"><tt>{{ ipl.women }}</tt></dd>
+					</div>
+				</dl>
+			</section>
+			<section class="results-section">
+				<h1 class="results-heading">IPF/USAPL</h1>
+				<dl class="federation">
+					<div class="division">
+						<dt class="division-title">Men</dt>
+						<dd class="weightclass"><tt>{{ ipf.men }}</tt></dd>
+					</div>
+					<div class="division">
+						<dt class="division-title">Women</dt>
+						<dd class="weightclass"><tt>{{ ipf.women }}</tt></dd>
+					</div>
+				</dl>
+			</section>
+			<section class="results-section">
+				<h1 class="results-heading">US Strongman</h1>
+				<dl class="federation">
+					<div class="division">
+						<dt class="division-title">Open Strongman</dt>
+						<dd class="weightclass"><tt>{{ us_strongman.open_strongman }}</tt></dd>
+					</div>
+					<div class="division">
+						<dt class="division-title">Masters Strongman</dt>
+						<dd class="weightclass"><tt>{{ us_strongman.masters_strongman }}</tt></dd>
+					</div>
+					<div class="division">
+						<dt class="division-title">Teens Strongman</dt>
+						<dd class="weightclass"><tt>{{ us_strongman.teens_strongman }}</tt></dd>
+					</div>
+					<div class="division">
+						<dt class="division-title">Open Strongwoman</dt>
+						<dd class="weightclass"><tt>{{ us_strongman.open_strongwoman }}</tt></dd>
+					</div>
+					<div class="division">
+						<dt class="division-title">Masters Strongwoman</dt>
+						<dd class="weightclass"><tt>{{ us_strongman.masters_strongwoman }}</tt></dd>
+					</div>
+					<div class="division">
+						<dt class="division-title">Teens Strongwoman</dt>
+						<dd class="weightclass"><tt>{{ us_strongman.teens_strongwoman }}</tt></dd>
+					</div>
+				</dl>
+			</section>
+		</div>
+	</body>
+</html>

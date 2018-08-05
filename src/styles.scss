@@ -1,0 +1,214 @@
+@function em($px) {
+	@return #{$px / 16}em;
+}
+
+@function rem($px) {
+	@return #{$px / 16}rem;
+}
+
+/* COLOR SCALE */
+$darkRed: #d42729;
+$blue: #0157ae;
+$white: #ffffff;
+$red: #ff0000;
+$navy: #000654;
+$black: #111;
+$gray: #AAAAAA;
+
+$bodyBG: $white;
+$bodyTextColor: $white;
+
+$formWrapperBG: $white;
+
+$buttonBG: $blue;
+$buttonText: $white;
+
+$radioBG: $gray;
+$radioUnchecked: $white;
+$radioChecked: $blue;
+$radioText: $black;
+/* ----- */
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	background-color: $bodyBG;
+	padding: rem(32);
+	font-size: 1.3em;
+	color: $black;
+}
+
+.page-header {
+	max-width: rem(800);
+	margin: 0 auto;
+
+	h1 {
+		text-align: center;
+		font-size: 2em;
+		color: $blue;
+		text-shadow: 1px 1px $navy;
+	}
+}
+
+.form-wrapper {
+	background-color: $formWrapperBG;
+	max-width: rem(400);
+	margin-right: auto;
+	margin-left: auto;
+	padding: rem(16);
+	border-radius: 4px;
+}
+
+.results-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.results-section {
+	border-radius: 4px;
+	border: 1px solid $black;
+	background: $white;
+	margin: rem(64) rem(32) 0;
+	max-width: 30ch;
+	padding: rem(16);
+	flex: 1 1 30ch;
+}
+
+.results-heading {
+	color: $navy;
+	font-size: 1.5em;
+	margin: 0 0 1.25rem;
+	text-align: center;
+}
+
+.federation { margin: 0; }
+
+$weightClassBreakpoint: rem(470);
+
+.division {
+	@media screen and (min-width: $weightClassBreakpoint) {
+		display: flex;
+	}
+}
+
+.division + .division {
+	border-top: 1px solid $black;
+	padding-top: rem(16);
+	margin-top: rem(16);
+}
+
+.division-title {
+	font-weight: bold;
+	flex: 1;
+	padding-right: rem(8);
+}
+
+.weightclass {
+	margin-left: 0;
+	align-self: center;
+	@media screen and (max-width: $weightClassBreakpoint) {
+		margin-top: rem(8);
+	}
+}
+
+.conversion-results {
+	background-color: $darkRed;
+	color: $white;
+	border-radius: 4px;
+	padding: rem(8);
+	margin: rem(32) auto 0;
+	max-width: 50ch;
+	text-align: center;
+}
+.conversion-results span {
+	font-weight: bold;
+}
+
+
+
+
+
+$inputBorderRadius: rem(4);
+$inputTextSize: em(12);
+
+.input-row {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.text-input {
+	appearance: textfield;
+	width: 12ch;
+	padding: rem(12);
+	line-height: 1;
+	text-transform: uppercase;
+	font-size: $inputTextSize;
+	border: 1px solid $navy;
+
+}
+
+.radio-set {
+	flex: 1 1 auto;
+	padding-left: rem(16);
+}
+
+.radio-label {
+	display: flex;
+	background-color: $radioBG;
+	border: 1px solid $radioBG;
+	border-radius: $inputBorderRadius;
+	color: $radioText;
+	padding: rem(8);
+	align-items: center;
+
+	& + .radio-label { margin-top: rem(8); }
+
+	input {
+		position: absolute;
+		opacity: 0;
+		z-index: -1;
+	}
+
+	.label-text {
+		flex: 0 1 auto;
+		line-height: 1;
+		text-transform: uppercase;
+		font-size: $inputTextSize;
+	}
+
+	$inputIndicatorWidth: rem(20);
+	.input-indicator {
+		flex: 0 0 $inputIndicatorWidth;
+		display: inline-block;
+		content: '';
+		width: $inputIndicatorWidth;
+		height: $inputIndicatorWidth;
+		border: 1px solid $radioBG;
+		background-color: $radioUnchecked;
+		border-radius: 50%;
+		margin-right: rem(8);
+	}
+
+	input:checked ~ .input-indicator { background-color: $radioChecked; }
+}
+
+.button {
+	background-color: $blue;
+	border: 1px solid $blue;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+	color: $white;
+	font-weight: bold;
+	font-size: $inputTextSize;
+	line-height: 1;
+	padding: rem(8);
+	border-radius: $inputBorderRadius;
+	margin-left: rem(16);
+}
+
+.error {
+	max-width: rem(400);
+	margin: rem(64) auto;
+	line-height: 1.5;
+}
