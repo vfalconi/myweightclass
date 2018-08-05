@@ -7,54 +7,84 @@ class Results extends Component {
 		return (
 			<React.Fragment>
 				{this.props.usersUnit !== 'kg' && <Conversion inputWeight={this.props.usersWeight} inputUnit={this.props.usersUnit} convertedWeight={this.props.convertedWeight} />}
-				<section>
-					<h1>IWF/USAW</h1>
-					<dl>
-						<dt>Men</dt>
-						<dd>{weightclasses.get(this.props.convertedWeight, weightclasses.iwf.men)}</dd>
-						<dt>Women</dt>
-						<dd>{weightclasses.get(this.props.convertedWeight, weightclasses.iwf.women)}</dd>
-						<dt>Youth Men</dt>
-						<dd>{weightclasses.get(this.props.convertedWeight, weightclasses.iwf.youth_men)}</dd>
-						<dt>Youth Women</dt>
-						<dd>{weightclasses.get(this.props.convertedWeight, weightclasses.iwf.youth_women)}</dd>
-					</dl>
-				</section>
-				<section>
-					<h1>IPL/USPA</h1>
-					<dl>
-						<dt>Men</dt>
-						<dd>{weightclasses.get(this.props.convertedWeight, weightclasses.ipl.men)}</dd>
-						<dt>Women</dt>
-						<dd>{weightclasses.get(this.props.convertedWeight, weightclasses.ipl.women)}</dd>
-					</dl>
-				</section>
-				<section>
-					<h1>IPF/USAPL</h1>
-					<dl>
-						<dt>Men</dt>
-						<dd>{weightclasses.get(this.props.convertedWeight, weightclasses.ipf.men)}</dd>
-						<dt>Women</dt>
-						<dd>{weightclasses.get(this.props.convertedWeight, weightclasses.ipf.women)}</dd>
-					</dl>
-				</section>
-				<section>
-					<h1>US Strongman</h1>
-					<dl>
-						<dt>Open Strongman</dt>
-						<dd>{weightclasses.get(this.props.convertedWeight, weightclasses.us_strongman.open_strongman)}</dd>
-						<dt>Masters Strongman</dt>
-						<dd>{weightclasses.get(this.props.convertedWeight, weightclasses.us_strongman.masters_strongman)}</dd>
-						<dt>Teens Strongman</dt>
-						<dd>{weightclasses.get(this.props.convertedWeight, weightclasses.us_strongman.teens_strongman)}</dd>
-						<dt>Open Strongwoman</dt>
-						<dd>{weightclasses.get(this.props.convertedWeight, weightclasses.us_strongman.open_strongwoman)}</dd>
-						<dt>Masters Strongwoman</dt>
-						<dd>{weightclasses.get(this.props.convertedWeight, weightclasses.us_strongman.masters_strongwoman)}</dd>
-						<dt>Teens Strongwoman</dt>
-						<dd>{weightclasses.get(this.props.convertedWeight, weightclasses.us_strongman.teens_strongwoman)}</dd>
-					</dl>
-				</section>
+				<div className="results-wrapper">
+					<section className="results-section">
+						<h1 className="results-heading">IWF/USAW</h1>
+						<dl className="federation">
+							<div className="division">
+								<dt className="division-title">Men</dt>
+								<dd className="weightclass"><tt>{weightclasses.get(this.props.convertedWeight, weightclasses.iwf.men)}</tt></dd>
+							</div>
+							<div className="division">
+								<dt className="division-title">Women</dt>
+								<dd className="weightclass"><tt>{weightclasses.get(this.props.convertedWeight, weightclasses.iwf.women)}</tt></dd>
+							</div>
+							<div className="division">
+								<dt className="division-title">Youth Men</dt>
+								<dd className="weightclass"><tt>{weightclasses.get(this.props.convertedWeight, weightclasses.iwf.youth_men)}</tt></dd>
+							</div>
+							<div className="division">
+								<dt className="division-title">Youth Women</dt>
+								<dd className="weightclass"><tt>{weightclasses.get(this.props.convertedWeight, weightclasses.iwf.youth_women)}</tt></dd>
+							</div>
+						</dl>
+					</section>
+					<section className="results-section">
+						<h1 className="results-heading">IPL/USPA</h1>
+						<dl className="federation">
+							<div className="division">
+								<dt className="division-title">Men</dt>
+								<dd className="weightclass"><tt>{weightclasses.get(this.props.convertedWeight, weightclasses.ipl.men)}</tt></dd>
+							</div>
+							<div className="division">
+								<dt className="division-title">Women</dt>
+								<dd className="weightclass"><tt>{weightclasses.get(this.props.convertedWeight, weightclasses.ipl.women)}</tt></dd>
+							</div>
+						</dl>
+					</section>
+					<section className="results-section">
+						<h1 className="results-heading">IPF/USAPL</h1>
+						<dl className="federation">
+							<div className="division">
+								<dt className="division-title">Men</dt>
+								<dd className="weightclass"><tt>{weightclasses.get(this.props.convertedWeight, weightclasses.ipf.men)}</tt></dd>
+							</div>
+							<div className="division">
+								<dt className="division-title">Women</dt>
+								<dd className="weightclass"><tt>{weightclasses.get(this.props.convertedWeight, weightclasses.ipf.women)}</tt></dd>
+							</div>
+						</dl>
+					</section>
+					<section className="results-section">
+						<h1 className="results-heading">US Strongman</h1>
+						<dl className="federation">
+							<div className="division">
+								<dt className="division-title">Open Strongman</dt>
+								<dd className="weightclass"><tt>{weightclasses.get(this.props.convertedWeight, weightclasses.us_strongman.open_strongman)}</tt></dd>
+							</div>
+							<div className="division">
+								<dt className="division-title">Masters Strongman</dt>
+								<dd className="weightclass"><tt>{weightclasses.get(this.props.convertedWeight, weightclasses.us_strongman.masters_strongman)}</tt></dd>
+							</div>
+							<div className="division">
+								<dt className="division-title">Teens Strongman</dt>
+								<dd className="weightclass"><tt>{weightclasses.get(this.props.convertedWeight, weightclasses.us_strongman.teens_strongman)}</tt></dd>
+							</div>
+							<div className="division">
+								<dt className="division-title">Open Strongwoman</dt>
+								<dd className="weightclass"><tt>{weightclasses.get(this.props.convertedWeight, weightclasses.us_strongman.open_strongwoman)}</tt></dd>
+							</div>
+							<div className="division">
+								<dt className="division-title">Masters Strongwoman</dt>
+								<dd className="weightclass"><tt>{weightclasses.get(this.props.convertedWeight, weightclasses.us_strongman.masters_strongwoman)}</tt></dd>
+							</div>
+							<div className="division">
+								<dt className="division-title">Teens Strongwoman</dt>
+								<dd className="weightclass"><tt>{weightclasses.get(this.props.convertedWeight, weightclasses.us_strongman.teens_strongwoman)}</tt></dd>
+							</div>
+						</dl>
+					</section>
+				</div>
 			</React.Fragment>
 		);
 	}
