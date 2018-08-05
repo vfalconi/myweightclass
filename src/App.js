@@ -52,26 +52,34 @@ class App extends Component {
     const hasSubmitted = this.state.submitted;
     const convertedWeight = toKilos(usersWeight, usersUnit);
     return (
-      <div className="App">
-        <form ref={this.inputForm} action="/" onSubmit={(e) => this.handleSubmit(e)}>
-          <label htmlFor="weight">Your weight</label>
-          <input id="weight" type="number" name="weight" min="1" defaultValue={usersWeight} onBlur={(e) => this.handleBlur(e)} />
-          <label>
-            Kilograms
-            <input type="radio" name="unit" value="kg" checked={usersUnit === 'kg' ? 'true': ''} onChange={(e) => this.handleChange(e)} />
-          </label>
-          <label>
-            Pounds
-            <input type="radio" name="unit" value="lbs" checked={usersUnit === 'lbs' ? 'true': ''} onChange={(e) => this.handleChange(e)} />
-          </label>
-          <label>
-            Stones
-            <input type="radio" name="unit" value="st" checked={usersUnit === 'st' ? 'true': ''} onChange={(e) => this.handleChange(e)} />
-          </label>
-        </form>
+			<React.Fragment>
+      	<div className="form-wrapper">
+					<form ref={this.inputForm} action="/" onSubmit={(e) => this.handleSubmit(e)}>
+						<div className="input-row">
+							<input className="text-input" id="weight" type="number" aria-label="Your weight" placeholder="Your weight" name="weight" min="1" defaultValue={usersWeight} onBlur={(e) => this.handleBlur(e)} />
+							<div className="radio-set" role="group">
+								<label className="radio-label">
+									<input type="radio" value="kg" name="unit" id="unit_kg" onChange={(e) => this.handleChange(e)} checked={usersUnit === 'kg' ? 'true': ''} />
+									<span className="input-indicator"></span>
+									<span className="label-text">kilos</span>
+								</label>
+								<label className="radio-label">
+									<input type="radio" value="lbs" name="unit" id="unit_lbs" onChange={(e) => this.handleChange(e)} checked={usersUnit === 'lbs' ? 'true': ''} />
+									<span className="input-indicator"></span>
+									<span className="label-text">pounds</span>
+								</label>
+								<label className="radio-label">
+									<input type="radio" value="st" name="unit" id="unit_st" onChange={(e) => this.handleChange(e)} checked={usersUnit === 'st' ? 'true': ''} />
+									<span className="input-indicator"></span>
+									<span className="label-text">stones</span>
+								</label>
+							</div>
+						</div>
+					</form>
+				</div>
         {usersWeight !== '' && <Results convertedWeight={convertedWeight} usersWeight={usersWeight} usersUnit={usersUnit} />}
         {usersWeight === '' && hasSubmitted === true && <Errors />}
-      </div>
+			</React.Fragment>
     );
   }
 }
